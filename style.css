@@ -1,0 +1,66 @@
+/* Atur Latar Belakang Gelap dan Warna Teks Putih */
+body {
+    background-color: #1a1a1a; /* Sangat gelap, hampir hitam */
+    color: #f0f0f0; /* Teks putih elegan */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Penataan Nama Mempelai dengan Font Skrip */
+.nama-mempelai {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5em; /* Ukuran font besar */
+    color: #fff;
+    margin-bottom: 0.1em;
+}
+
+/* Penataan Bagian Cover */
+#cover {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Gunakan foto atau warna gelap sebagai latar belakang cover */
+    background-image: url('cover_foto.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay agar teks lebih jelas */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Ornamen Bunga (contoh penempatan di bagian atas acara) */
+.ornamen-atas {
+    height: 150px;
+    width: 100%;
+    margin: 30px 0;
+    background-image: url('ornamen.png'); /* Aset PNG ornamen putih Anda */
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+}
+
+/* Penataan Tombol Buka Undangan */
+#buka-undangan {
+    padding: 10px 30px;
+    background-color: #fff; /* Tombol Putih */
+    color: #1a1a1a; /* Teks Hitam */
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+/* Pastikan tampilan bagus di ponsel */
+@media (max-width: 600px) {
+    .nama-mempelai {
+        font-size: 3em;
+    }
+}
