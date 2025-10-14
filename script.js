@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tombolBuka = document.getElementById('buka-undangan');
-    const cover = document.getElementById('cover'); // Tambahkan referensi ke elemen cover
+    const cover = document.getElementById('cover'); 
     const musik = document.getElementById('musik-latar');
 
     // =========================================================
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Transisi Cover Fade-out (Kesan Profesional)
+        // Transisi Cover Fade-out
         cover.style.opacity = '0';
         
         // Menghilangkan Cover setelah transisi selesai (500ms)
@@ -38,8 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, {
-        // Threshold 0.1 berarti fade-in dimulai saat 10% elemen terlihat di layar
-        threshold: 0.1 
+        threshold: 0.1 // Pemicu saat 10% elemen terlihat di layar
     });
 
     // Terapkan observer ke semua bagian yang memiliki kelas 'konten-utama'
