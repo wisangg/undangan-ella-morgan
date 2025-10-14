@@ -1,4 +1,19 @@
 /* ========================================================= */
+/* SCROLL FIX KUAT - MENGATASI BLOKIR SCROLL LAMA */
+/* ========================================================= */
+html, body {
+    /* Pastikan tinggi diizinkan */
+    min-height: 100vh;
+    /* Mencegah setiap kode lama memblokir scroll */
+    overflow: auto !important;
+    overflow-x: hidden !important; 
+}
+
+
+/* ========================================================= */
+/* 1. VARIABEL AKESN (Profesional & Mahal) */
+/* ... sisanya ... */
+/* ========================================================= */
 /* 1. VARIABEL AKESN (Profesional & Mahal) */
 /* ========================================================= */
 :root {
