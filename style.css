@@ -8,8 +8,14 @@
 }
 
 /* ========================================================= */
-/* 2. Gaya Dasar (Body) */
+/* 2. Gaya Dasar (Body) - KODE SCROLL FIX DITAMBAHKAN DI SINI */
 /* ========================================================= */
+html, body {
+    /* MEMASTIKAN SCROLL VERTIKAL SELALU DIIZINKAN */
+    overflow-x: hidden; 
+    overflow-y: auto !important; 
+}
+
 body {
     background-color: var(--background-color); 
     color: var(--text-color); 
@@ -17,7 +23,6 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    overflow-x: hidden; 
 }
 
 /* ========================================================= */
@@ -32,12 +37,13 @@ body {
     align-items: center;
     
     /* PENTING: Gunakan nama file yang BENAR di repositori Anda */
+    /* Karena hasil terakhir Anda menampilkan foto, pastikan nama ini benar */
     background-image: url('cover_foto.jpg'); 
     
     background-size: cover;
     background-position: center center;
     
-    /* UBAH INI! DARI 'fixed' JADI 'absolute' */
+    /* POSITION: ABSOLUTE UNTUK MEMUNCULKAN SCROLL */
     position: absolute; 
     
     top: 0;
@@ -46,7 +52,7 @@ body {
     transition: opacity 0.5s ease-in-out; 
 }
 
-/* Lapisan Gelap (Overlay) — Menggantikan .overlay lama */
+/* Lapisan Gelap (Overlay) */
 #cover::before {
     content: '';
     position: absolute;
@@ -58,7 +64,7 @@ body {
     z-index: 1;
 }
 
-.konten-cover { /* Ganti ini jika Anda menggunakan .overlay di HTML */
+.konten-cover {
     position: relative; 
     z-index: 2;
     padding: 20px;
@@ -95,8 +101,8 @@ body {
 #buka-undangan {
     padding: 15px 50px; 
     background: transparent;
-    color: var(--accent-color); /* Teks Aksen Emas */
-    border: 3px solid var(--accent-color); /* Border Emas yang tebal */
+    color: var(--accent-color); 
+    border: 3px solid var(--accent-color); 
     cursor: pointer;
     font-size: 1.2em;
     letter-spacing: 3px;
@@ -107,9 +113,28 @@ body {
     background-color: rgba(209, 180, 124, 0.1); 
 }
 
-/* Hapus kode ornamen dan overlay lama dari versi sebelumnya */
+/* ========================================================= */
+/* 4. GAYA FADE-IN KONTEN (FITUR MEWAH DITAMBAHKAN DI SINI) */
+/* ========================================================= */
 
-/* Responsif */
+/* Status awal: Sembunyikan dan geser sedikit ke bawah */
+.konten-utama {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transisi lambat 1 detik */
+    padding: 60px 20px; /* Tambahkan padding agar ada jarak yang rapi */
+}
+
+/* Status akhir: Tampilkan saat terlihat (dipicu oleh script.js) */
+.konten-utama.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================================= */
+/* 5. Responsif */
+/* ========================================================= */
 @media (max-width: 600px) {
     .nama-mempelai {
         font-size: 3.5em; 
