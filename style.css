@@ -32,12 +32,14 @@ body {
     align-items: center;
     
     /* PENTING: Gunakan nama file yang BENAR di repositori Anda */
-    /* Jika file Anda di repo bernama 'cover_foto.jpg', gunakan itu */
     background-image: url('cover_foto.jpg'); 
     
     background-size: cover;
     background-position: center center;
-    position: fixed; 
+    
+    /* UBAH INI! DARI 'fixed' JADI 'absolute' */
+    position: absolute; 
+    
     top: 0;
     left: 0;
     z-index: 1000;
