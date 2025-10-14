@@ -1,17 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tombolBuka = document.getElementById('buka-undangan');
+    const cover = document.getElementById('cover'); // Tambahkan referensi ke elemen cover
     const musik = document.getElementById('musik-latar');
 
-    // Mencegah Autoplay diblokir browser, musik diputar saat tombol diklik
+    // =========================================================
+    // 1. FUNGSI TOMBOL BUKA UNDANGAN & FADE-OUT COVER
+    // =========================================================
     tombolBuka.addEventListener('click', function() {
+        // Memainkan Musik
         if (musik) {
             musik.play().catch(error => {
-                // Tangani error jika gagal autoplay
                 console.log("Autoplay diblokir: " + error);
             });
         }
-        // Sembunyikan cover dan tampilkan undangan utama (jika menggunakan cover terpisah)
-        // Contoh: document.getElementById('cover').style.display = 'none';
+        
+        // Transisi Cover Fade-out (Kesan Profesional)
+        cover.style.opacity = '0';
+        
+        // Menghilangkan Cover setelah transisi selesai (500ms)
+        setTimeout(() => {
+            cover.style.display = 'none';
+        }, 500); 
+    });
+
+
+    // =========================================================
+    // 2. INTERSECTION OBSERVER (FADE-IN Konten saat Scroll - Fitur Mahal)
+    // =========================================================
+    // Observer ini memicu kelas 'visible' pada elemen yang memiliki kelas 'konten-utama'
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Tambahkan kelas 'visible' untuk memicu transisi fade-in (dari style.css)
+                entry.target.classList.add('visible');
+                // Hentikan observer setelah elemen muncul
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        // Threshold 0.1 berarti fade-in dimulai saat 10% elemen terlihat di layar
+        threshold: 0.1 
+    });
+
+    // Terapkan observer ke semua bagian yang memiliki kelas 'konten-utama'
+    document.querySelectorAll('.konten-utama').forEach((section) => {
+        observer.observe(section);
     });
 });
-// Anda dapat menambahkan fungsi Countdown Timer di sini
