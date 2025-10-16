@@ -3,61 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pawiwahan Gung Gus & Sonia</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>The Wedding of Gung Gus & Sonia</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
+    <style>
+        /* Reset CSS Dasar */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+        }
+
+        /* Container Halaman Pembuka */
+        .hero-section {
+            height: 100vh; /* Tinggi section setinggi layar */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box; /* Agar padding tidak menambah ukuran elemen */
+
+            /* Terapkan gambar latar belakang */
+            background-image: 
+                /* Lapisan overlay gelap untuk membuat teks lebih mudah dibaca */
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                /* Ganti URL_FOTO_ANDA.jpg dengan URL gambar Anda */
+                url('URL_FOTO_ANDA.jpg');
+            
+            background-size: cover; /* Gambar menutupi seluruh area */
+            background-position: center; /* Posisi gambar di tengah */
+            background-repeat: no-repeat;
+        }
+
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem; /* Ukuran font untuk "The Wedding of" */
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .couple-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem; /* Ukuran font nama mempelai */
+            margin: 10px 0;
+        }
+
+        .guest-info {
+            margin-top: 40px; /* Jarak dari nama mempelai */
+            font-weight: 300;
+        }
+        
+        .guest-info p {
+            margin: 5px 0;
+        }
+        
+        .guest-name {
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 25px;
+            padding: 12px 28px;
+            border: 1px solid #ffffff;
+            border-radius: 50px; /* Membuat sudut tombol menjadi bulat */
+            background-color: rgba(255, 255, 255, 0.1); /* Latar belakang semi-transparan */
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        .cta-button svg {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            fill: currentColor; /* Warna ikon mengikuti warna teks */
+        }
+        
+        /* Penyesuaian untuk layar kecil (Mobile) */
+        @media (max-width: 768px) {
+            .couple-name {
+                font-size: 3rem;
+            }
+            .hero-section h1 {
+                font-size: 1.2rem;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
-    <section id="cover">
-        <div class="konten-cover cover-gelap"> 
-            <p class="salam-pembuka">UNDANGAN PERNIKAHAN</p> 
-            <h1 class="nama-mempelai">Gung Gus & Sonia</h1> 
-            <p class="tanggal-utama">03 OKTOBER 2025</p>
-            
-            <p class="teks-undangan-cover">Kami mengundang Bapak/Ibu Saudara/i untuk menghadiri pernikahan kami pada</p>
-
-            <div id="countdown-timer"></div>
-            <button id="buka-undangan">Buka Undangan</button>
+    <div class="hero-section">
+        <h1>The Wedding of</h1>
+        <h2 class="couple-name">Gung Gus & Sonia</h2>
+        
+        <div class="guest-info">
+            <p>Kepada Bpk./Ibu/Saudara/i</p>
+            <p class="guest-name">Tamu Undangan</p>
         </div>
-    </section>
-    <section id="salam-pembuka" class="konten-utama">
-        <div class="ornament-atas"></div>
-        <p class="doa-bali">ᬒᬁᬲ᭄ᬯᬲ᭄ᬢ᭄ᬬᬲ᭄ᬢᬸ​᭟</p>
-        <p class="teks-doa">Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan Yang Maha Esa kami bermaksud mengundang Bapak/Ibu/Saudara/i pada Upacara Manusa Yadnya Pawiwahan (Pernikahan) Putra &amp; Putri Kami.</p>
-        <div class="ornament-bawah"></div>
-    </section>
 
-    <section id="detail-mempelai" class="konten-utama">
-        <h2 class="judul-section">Detail Mempelai</h2>
-        <div class="mempelai-pria">
-            <p class="nama-lengkap">Anak Agung Gde Bagus Artha Wiguna, S.Tr.AB</p>
-            <p class="nama-ortu">Putra pertama dari Bpk. I Wayan dan Ibu I Made</p>
-        </div>
-        <h2 class="ampersand">&</h2>
-        <div class="mempelai-wanita">
-            <p class="nama-lengkap">Ni Luh Putu Sonia Devi, S.E.</p>
-            <p class="nama-ortu">Putri pertama dari Bpk. I Ketut dan Ibu Ni Nengah</p>
-        </div>
-    </section>
+        <a href="#isi-undangan" class="cta-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM0 112C0 99.1 7.2 87.7 18.1 82.2L244.5 220.6c11.3 6.4 25.6 6.4 37 0L501.9 82.2C494.8 87.7 512 99.1 512 112v23.2L327.9 259.3c-17.7 10-39.2 10-56.9 0L0 135.2V112zM48 448V214.3l168.1 95.6c21.8 12.4 48.7 12.4 70.5 0L464 214.3V448H48z"/>
+            </svg>
+            Buka Undangan
+        </a>
+    </div>
 
-    <section id="detail-acara" class="konten-utama">
-        <h2 class="judul-section">Detail Acara</h2>
-        </section>
-
-    <section id="rsvp-hadiah" class="konten-utama">
-        <h2 class="judul-section">RSVP & Kirim Hadiah</h2>
-        </section>
-
-    <audio id="musik-latar" loop>
-        <source src="lagu.mp3" type="audio/mp3"> 
-    </audio>
-
-    <script src="script.js" defer></script> 
-</body>
+    </body>
 </html>
