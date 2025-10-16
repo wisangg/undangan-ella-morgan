@@ -7,7 +7,7 @@ html, body {
     width: 100%;
 }
 body {
-    background-color: #222222; /* Latar Belakang Abu Gelap */
+    background-color: #1a1a1a; /* Latar Belakang Hitam/Abu Sangat Gelap */
     font-family: 'Raleway', sans-serif;
     color: #eeeeee; /* Warna teks dasar putih pucat */
     margin: 0;
@@ -17,17 +17,17 @@ body {
     box-sizing: border-box;
 }
 
-/* --- VARIABEL WARNA (Disesuaikan dengan tema Gelap & Emas) --- */
+/* --- VARIABEL WARNA (Disesuaikan dengan tema Ella & Morgan - Abu & Putih) --- */
 :root {
     --primary-font: 'DM Serif Display', serif; /* Font Judul/Nama Klasik */
     --secondary-font: 'Quicksand', sans-serif; /* Font Teks Normal */
-    --accent-color: #d1b46a; /* Emas Pucat / Kuning Keemasan */
-    --text-color-gelap: #ffffff; /* Putih untuk teks */
-    --bg-seksi-cerah: #333333; /* Warna background untuk kontras */
+    --accent-color: #ffffff; /* Aksen menjadi Putih Bersih */
+    --light-accent-color: #cccccc; /* Abu-abu Pucat untuk detail */
+    --bg-seksi-gelap: #1a1a1a; /* Background untuk kontras */
 }
 
 /* ========================================================= */
-/* --- 1. COVER / WELCOME SECTION (Tampilan Gelap) --- */
+/* --- 1. COVER / WELCOME SECTION (Tampilan Ella & Morgan) --- */
 /* ========================================================= */
 #cover {
     position: fixed;
@@ -42,70 +42,80 @@ body {
     text-align: center;
     transition: opacity 0.5s ease-out; 
     
-    /* Gunakan gambar Ella & Morgan yang Anda berikan (annie-spratt...) */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('annie-spratt-wuc-KEIBrdE-unsplash.jpg');
-    background-color: #000; 
+    /* Ganti gambar latar dengan gambar yang Anda gunakan (jika ada) */
+    /* Saat ini menggunakan background abu-abu saja untuk meniru warna kotak */
+    background-color: #4a545c; /* Warna latar belakang abu-abu semen */
+    /* Jika Anda punya gambar latar, gunakan ini: */
+    /* background-image: url('nama_gambar_ella_morgan.jpg'); */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Jika Anda ingin efek parallax ringan */
 }
 
 .konten-cover {
     padding: 50px 30px; 
-    /* Kotak hitam transparan di tengah cover, seperti pada referensi */
-    background-color: rgba(34, 34, 34, 0.7); 
+    /* Kotak Abu-abu Gelap Transparan di tengah, persis seperti gambar */
+    background-color: rgba(40, 48, 55, 0.9); 
     border-radius: 5px;
     max-width: 90%;
 }
 
 .salam-pembuka {
-    font-size: 1em;
-    color: var(--accent-color);
-    letter-spacing: 5px;
+    font-size: 1.2em;
+    color: var(--light-accent-color);
+    letter-spacing: 2px;
     margin-bottom: 5px;
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
 }
 
 .nama-mempelai {
-    font-family: var(--primary-font);
-    font-size: 3.8em; 
-    color: var(--text-color-gelap);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-    margin: 0.1em 0;
+    font-family: 'DM Serif Display', cursive; /* Gunakan Font Skrip jika Anda punya */
+    font-size: 4em; 
+    color: var(--accent-color); /* Nama menjadi Putih */
+    text-shadow: none; /* Hilangkan bayangan emas */
+    margin: 0.1em 0 0.5em 0;
 }
 
 .teks-undangan-cover {
-    font-size: 0.9em;
-    color: #ddd;
+    font-size: 1em;
+    color: var(--light-accent-color);
     margin: 20px 0 5px 0;
     font-family: var(--secondary-font);
 }
 
 .tanggal-utama {
     font-family: var(--secondary-font);
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-top: 10px;
     font-weight: 700;
-    color: var(--text-color-gelap);
+    color: var(--accent-color); /* Tanggal menjadi Putih */
+}
+
+#countdown-timer {
+    font-family: var(--secondary-font);
+    font-size: 1.1em;
+    color: var(--light-accent-color);
+    margin-top: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 #buka-undangan {
     background: none;
     color: var(--accent-color);
-    border: 1px solid var(--accent-color); /* Bingkai Emas */
+    border: 1px solid var(--light-accent-color); /* Border Putih/Abu-abu */
     padding: 10px 30px;
     margin-top: 30px;
     cursor: pointer;
     font-size: 1em;
-    border-radius: 0; /* Gaya tombol Elementor */
+    border-radius: 0; 
     transition: all 0.3s;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 #buka-undangan:hover {
-    background-color: var(--accent-color);
-    color: #222; /* Teks Hitam saat di-hover */
+    background-color: var(--light-accent-color);
+    color: #1a1a1a; /* Teks Hitam saat di-hover */
 }
 
 /* ========================================================= */
@@ -125,25 +135,50 @@ section.visible {
     transform: translateY(0);
 }
 
-/* Warna background untuk menonjolkan section tertentu */
+/* Semua background section kembali menjadi sangat gelap */
 #salam-pembuka {
-    background-color: var(--bg-seksi-cerah);
+    background-color: var(--bg-seksi-gelap);
+    padding-top: 60px; 
+    padding-bottom: 60px; 
 }
 
 
 .judul-section {
     font-family: var(--primary-font);
     font-size: 2.5em;
-    color: var(--accent-color); /* Judul tetap warna emas */
+    color: var(--accent-color); /* Judul Putih */
     margin-bottom: 30px;
 }
 
 
-/* --- 3. GAYA KHUSUS KONTEN Bali --- */
+/* --- 3. HILANGKAN AKSSEN EMAS LIPATAN --- */
+
+/* Ornamen diubah menjadi garis putih/perak sederhana */
+.ornament-atas, .ornament-bawah {
+    height: 1px;
+    width: 80px;
+    background-color: var(--light-accent-color); /* Garis Abu-abu Pucat */
+    margin: 20px auto;
+    opacity: 0.5;
+    /* Hapus semua properti 3D/Lipatan Emas */
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Hilangkan pseudo-elemen miring (lipatan) */
+.ornament-atas::before,
+.ornament-atas::after,
+.ornament-bawah::before,
+.ornament-bawah::after {
+    content: none; 
+}
+
+
+/* Teks Doa Bali diganti menjadi Putih/Abu-abu */
 .doa-bali {
     font-size: 2.5em;
     font-family: var(--primary-font);
-    color: var(--accent-color);
+    color: var(--light-accent-color);
     margin: 10px 0;
 }
 
@@ -155,22 +190,11 @@ section.visible {
     color: #ddd;
 }
 
-.ornament-atas, .ornament-bawah {
-    height: 1px;
-    width: 80px;
-    background-color: var(--accent-color);
-    margin: 15px auto;
-    opacity: 0.5;
-}
-
-#detail-mempelai {
-    font-family: var(--secondary-font);
-}
 
 .nama-lengkap {
     font-size: 1.6em;
     font-weight: 400;
-    color: var(--accent-color);
+    color: var(--accent-color); /* Nama mempelai Putih */
     margin: 5px 0;
     font-family: var(--primary-font);
 }
@@ -185,14 +209,14 @@ section.visible {
 .ampersand {
     font-family: var(--primary-font);
     font-size: 2.5em;
-    color: var(--text-color-gelap);
+    color: var(--light-accent-color);
     margin: 20px 0;
 }
 
 /* Media Query untuk Mobile */
 @media (max-width: 600px) {
     .nama-mempelai {
-        font-size: 2.5em;
+        font-size: 2.8em;
     }
     .doa-bali {
         font-size: 2em;
