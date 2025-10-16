@@ -1,48 +1,50 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // 1. Ambil elemen-elemen yang diperlukan
     const tombolBuka = document.getElementById('buka-undangan');
     const cover = document.getElementById('cover'); 
     const musik = document.getElementById('musik-latar');
 
-    // =========================================================
-    // 1. FUNGSI TOMBOL BUKA UNDANGAN & FADE-OUT COVER
-    // =========================================================
-    tombolBuka.addEventListener('click', function() {
-        // Memainkan Musik
-        if (musik) {
-            musik.play().catch(error => {
-                console.log("Autoplay diblokir: " + error);
-            });
-        }
-        
-        // Transisi Cover Fade-out
-        cover.style.opacity = '0';
-        
-        // Menghilangkan Cover setelah transisi selesai (500ms)
-        setTimeout(() => {
-            cover.style.display = 'none';
-        }, 500); 
-    });
+    // 2. FUNGSI TOMBOL BUKA UNDANGAN & FADE-OUT COVER
+    if (tombolBuka && cover) {
+        tombolBuka.addEventListener('click', function() {
+            // Putar musik jika ada
+            if (musik) {
+                musik.play().catch(error => {
+                    console.log("Autoplay diblokir: " + error);
+                });
+            }
+            
+            // Lakukan fade-out
+            cover.style.opacity = '0';
+            setTimeout(() => {
+                cover.style.display = 'none';
+                // Aktifkan scroll setelah cover hilang
+                document.body.style.overflow = 'auto'; 
+            }, 500); 
+        });
+    }
 
 
-    // =========================================================
-    // 2. INTERSECTION OBSERVER (FADE-IN Konten saat Scroll - Fitur Mahal)
-    // =========================================================
-    // Observer ini memicu kelas 'visible' pada elemen yang memiliki kelas 'konten-utama'
+    // 3. INTERSECTION OBSERVER (FADE-IN Konten saat Scroll)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Tambahkan kelas 'visible' untuk memicu transisi fade-in (dari style.css)
                 entry.target.classList.add('visible');
-                // Hentikan observer setelah elemen muncul
+                // Berhenti mengamati setelah elemen terlihat
                 observer.unobserve(entry.target); 
             }
         });
     }, {
-        threshold: 0.1 // Pemicu saat 10% elemen terlihat di layar
+        threshold: 0.1 // Mulai terlihat saat 10% elemen masuk viewport
     });
 
-    // Terapkan observer ke semua bagian yang memiliki kelas 'konten-utama'
+    // Amati semua section dengan class 'konten-utama'
     document.querySelectorAll('.konten-utama').forEach((section) => {
         observer.observe(section);
     });
+
+    // Awalnya nonaktifkan scroll di body (hanya untuk tampilan cover)
+    if (cover) {
+        document.body.style.overflow = 'hidden'; 
+    }
 });
